@@ -35,7 +35,7 @@ class Lecteur implements interfaceIO
     }
 	
 	/*------------------------------------*/
-	public function selectLecteur($name)
+	private function selectLecteur($name)
 	{	
 	    $info = new SplFileInfo($name);
        
@@ -66,7 +66,8 @@ class Lecteur implements interfaceIO
     
     public function import(Image $I)
     {
-        $this->_lecteur->import($I);    
+        $this->_lecteur->import($I); 
+        $this->enregistreSous("tmp");   
     }  
 	
 	public function ouvre($filename)
