@@ -15,22 +15,7 @@
 	// utilise le lecteur pour ouvrir une fichier
     $lecteur->ouvre("images/bobine.png");
     $lecteur->afficheImage();
-    
-    // utilise le lecteur pour creer une image exploitable pour le traitement d'image
-    $I = $lecteur->export();
-    
-    echo $I->tab[23][34][1];
-    
-    for ($i=50;$i<150;$i++)
-        for ($j=50;$j<150;$j++)
-                $I->tab[$i][$j][1] = 0;
-                
-                
-                
-    
-    $lecteur->import($I);
-    
-    $lecteur->afficheImage();
+
            
                 
     
