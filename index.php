@@ -9,23 +9,14 @@
 	require_once("conf/config.php");
 	require_once("src/Lecteur.php");
 
-    // creer un lecteur d'image qui permet de lire, ecrire et afficher des fichier
+   // creer un lecteur d'image qui permet de lire, ecrire et afficher des fichier
 	$lecteur = new Lecteur();
 	
+	//1. CHARGER L'IMAGE
 	// utilise le lecteur pour ouvrir une fichier
-    $lecteur->ouvre("images/bobine.png");
-    $lecteur->afficheImage();
-
-           
-                
-    
-    
-    
-    
-    
-    
- 
-	
+   $lecteur->ouvre("images/bobine.png");
+   $lecteur->afficheImage();
+  
 	
 ?>
 

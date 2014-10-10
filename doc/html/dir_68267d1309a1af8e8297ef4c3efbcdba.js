@@ -18,9 +18,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "ImageIOpng.php", "_image_i_opng_8php.html", [
       [ "ImageIOpng", "class_image_i_opng.html", "class_image_i_opng" ]
     ] ],
-    [ "ImageSampling.php", "_image_sampling_8php.html", [
-      [ "ImageSampling", "class_image_sampling.html", null ]
-    ] ],
     [ "InterfaceIO.php", "_interface_i_o_8php.html", [
       [ "InterfaceIO", "interface_interface_i_o.html", "interface_interface_i_o" ]
     ] ],

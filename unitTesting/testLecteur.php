@@ -22,13 +22,15 @@
 	
     $I = $lecteur->export();
     
-	echo ("pixel 32, 45".$I->tab[32][48][0]);
+	echo ("pixel 32, 45".$I->tab[32][45][0]);
 	
 	for ($i = 50 ; $i<150 ; $i++ )
+	{
 	   for ($j = 50 ; $j<150 ; $j++ )
 	   {
 	       $I->tab[$i][$j][0] = 120;
 	   }
+	}    
 	$lecteur->import($I);
 	// affichage de l'image à l'écran
     $lecteur->enregistreSous("../images/bobine102.png");

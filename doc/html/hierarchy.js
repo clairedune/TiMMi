@@ -2,7 +2,6 @@ var hierarchy =
 [
     [ "Conversion", "class_conversion.html", null ],
     [ "Image", "class_image.html", null ],
-    [ "ImageSampling", "class_image_sampling.html", null ],
     [ "interfaceIO", null, [
       [ "Lecteur", "class_lecteur.html", null ]
     ] ],

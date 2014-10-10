@@ -28,13 +28,31 @@ class Lecteur implements interfaceIO
 	private $_lecteur;
 	
 	
-	/*------------------------------------*/
+	/*!
+	 * \fn Lecteur()
+	 * \brief constructeur de la classe Lecteur
+	 *
+	 *
+	 * Exemple : creation d'une image
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->afficheImage();
+	  ?php>
+	 * \endcode
+	 */
 	public function Lecteur()
 	{
 	    $this->_lecteur = new ImageIOpng(); 
     }
 	
-	/*------------------------------------*/
+	/*!
+	 * \fn selectLecteur()
+	 * \brief permet de selectionner le bon lecteur selon l'extension du fichier
+	 * \warning c'est une méthode privée qui n'est pas accessible depuis l'extérieur de    
+	 * la classe
+	 */
 	private function selectLecteur($name)
 	{	
 	    $info = new SplFileInfo($name);
@@ -59,11 +77,45 @@ class Lecteur implements interfaceIO
 	    	    
 	}
 	
+	
+	
+	
+	/*!
+	 * \fn export()
+	 * \brief cette méthode permet de créer une image de la classe Image pour le traitement d'image
+	 *
+	 *
+	 * 
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->afficheImage();
+            $I = $lecteur->export();
+	  ?php>
+	 \endcode
+	 */
     public function export()
     { 
         return $this->_lecteur->export();
     }
     
+    
+    /*!
+	 * \fn import()
+	 * \brief cette méthode permet de créer une image de la classe Image pour le traitement d'image
+	 *
+	 *
+	 * 
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->afficheImage();
+            $I = $lecteur->export();
+	  ?php>
+	 * \endcode
+	 */
     public function import(Image $I)
     {
         $this->_lecteur->import($I); 
