@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -106,51 +107,62 @@ $(document).ready(function(){initNavTree('_image_i_o_8php_source.html','');});
 </div><!--header-->
 <div class="contents">
 <a href="_image_i_o_8php.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;&lt;?php</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;require_once <span class="stringliteral">&quot;Image.php&quot;</span>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;require_once <span class="stringliteral">&quot;InterfaceIO.php&quot;</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_image_i_o.html">   20</a></span>&#160;<span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="class_image_i_o.html">ImageIO</a> <span class="keyword">implements</span> <a class="code" href="interface_interface_i_o.html">InterfaceIO</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">protected</span> $_filename = <span class="stringliteral">&quot;tmp.png&quot;</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span> $_im;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> __toString()</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordflow">return</span>  <span class="stringliteral">&quot;&lt;br /&gt;----Image info-----&lt;br /&gt;&quot;</span>.</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="stringliteral">&quot;&lt;br /&gt;Fichier :&lt;br /&gt;&quot;</span>.$this-&gt;_filename.<span class="stringliteral">&quot;&lt;br/&gt;&quot;</span>;    </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> afficheImage()</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        echo <span class="stringliteral">&quot;&lt;img src=\&quot;&quot;</span>.$this-&gt;_filename.<span class="stringliteral">&quot;\&quot;&gt;&quot;</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    }</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> export()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_conversion.html#a0ec28d2d44067359d83331dcd099b5be">Conversion::ressource2image</a>($this-&gt;_im);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <span class="keyword">import</span>(<a class="code" href="class_image.html">Image</a> $I)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        $this-&gt;_im = <a class="code" href="class_conversion.html#a5f66ca2a147a5960f8d0a37d32fc8e3f">Conversion::image2ressource</a>($I);    </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> setFilename($a)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        $this-&gt;_filename = $a;  </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;require_once <span class="stringliteral">&quot;Image.php&quot;</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;require_once <span class="stringliteral">&quot;InterfaceIO.php&quot;</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_image_i_o.html">   23</a></span>&#160;<span class="keyword">abstract</span> <span class="keyword">class </span><a class="code" href="class_image_i_o.html">ImageIO</a> <span class="keyword">implements</span> <a class="code" href="interface_interface_i_o.html">InterfaceIO</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">protected</span> $_filename = <span class="stringliteral">&quot;tmp.png&quot;</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">public</span> $_im;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_image_i_o.html#ad756a54f7efb4f6184e9c203af793f52">   34</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_image_i_o.html#ad756a54f7efb4f6184e9c203af793f52">__toString</a>()</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">return</span>  <span class="stringliteral">&quot;&lt;br /&gt;----Image info-----&lt;br /&gt;&quot;</span>.</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                <span class="stringliteral">&quot;&lt;br /&gt;Fichier :&lt;br /&gt;&quot;</span>.$this-&gt;_filename.<span class="stringliteral">&quot;&lt;br/&gt;&quot;</span>.</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                <span class="stringliteral">&quot;&lt;br /&gt;Largeur :&lt;br /&gt;&quot;</span>.imagesx($this-&gt;_im).<span class="stringliteral">&quot;&lt;br/&gt;&quot;</span>.</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                <span class="stringliteral">&quot;&lt;br /&gt;Hauteur :&lt;br /&gt;&quot;</span>.imagesy($this-&gt;_im).<span class="stringliteral">&quot;&lt;br/&gt;&quot;</span>;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_image_i_o.html#a20d8912c6961a10ca5c04f87676501d7">   47</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_image_i_o.html#a20d8912c6961a10ca5c04f87676501d7">afficheImage</a>()</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        echo <span class="stringliteral">&quot;&lt;img src=\&quot;&quot;</span>.$this-&gt;_filename.<span class="stringliteral">&quot;\&quot;&gt;&quot;</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;         </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> ouvre($filename);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> enregistre();</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> enregistreSous($filename); </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
-<div class="ttc" id="class_image_i_o_html"><div class="ttname"><a href="class_image_i_o.html">ImageIO</a></div><div class="ttdoc">classe ImageIO, lecture et écriture des images </div><div class="ttdef"><b>Definition:</b> <a href="_image_i_o_8php_source.html#l00020">ImageIO.php:20</a></div></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> exporte()</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="class_conversion.html#a0ec28d2d44067359d83331dcd099b5be">Conversion::ressource2image</a>($this-&gt;_im);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> importe(<a class="code" href="class_image.html">Image</a> $I)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        $this-&gt;_im = <a class="code" href="class_conversion.html#a5f66ca2a147a5960f8d0a37d32fc8e3f">Conversion::image2ressource</a>($I);    </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="class_image_i_o.html#ad813343aace5117b60f46969d4c7fbc9">   81</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">function</span> <a class="code" href="class_image_i_o.html#ad813343aace5117b60f46969d4c7fbc9">getFilename</a>()</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;         <span class="keywordflow">return</span>       $this-&gt;_filename;  </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> <a class="code" href="class_image_i_o.html#a16bd571e3645f0ea04aada32c593d74a">ouvre</a>($filename);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> <a class="code" href="class_image_i_o.html#af3329dca0a32841592c1ae7ebb71c5c6">enregistre</a>();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">function</span> enregistreSous($filename); </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
+<div class="ttc" id="class_image_i_o_html"><div class="ttname"><a href="class_image_i_o.html">ImageIO</a></div><div class="ttdoc">classe ImageIO, lecture et écriture des images </div><div class="ttdef"><b>Definition:</b> <a href="_image_i_o_8php_source.html#l00023">ImageIO.php:23</a></div></div>
 <div class="ttc" id="class_image_html"><div class="ttname"><a href="class_image.html">Image</a></div><div class="ttdoc">classe image pour les TP de traitement d&amp;#39;image. Elle contient un tableau de 3 dimensions. </div><div class="ttdef"><b>Definition:</b> <a href="_image_8php_source.html#l00015">Image.php:15</a></div></div>
 <div class="ttc" id="interface_interface_i_o_html"><div class="ttname"><a href="interface_interface_i_o.html">InterfaceIO</a></div><div class="ttdoc">interface InterfaceIO : prototype des methodes d&amp;#39;affichage, lecture et écriture des images ...</div><div class="ttdef"><b>Definition:</b> <a href="_interface_i_o_8php_source.html#l00019">InterfaceIO.php:19</a></div></div>
+<div class="ttc" id="class_image_i_o_html_a16bd571e3645f0ea04aada32c593d74a"><div class="ttname"><a href="class_image_i_o.html#a16bd571e3645f0ea04aada32c593d74a">ImageIO\ouvre</a></div><div class="ttdeci">ouvre($filename)</div></div>
+<div class="ttc" id="class_image_i_o_html_ad756a54f7efb4f6184e9c203af793f52"><div class="ttname"><a href="class_image_i_o.html#ad756a54f7efb4f6184e9c203af793f52">ImageIO\__toString</a></div><div class="ttdeci">__toString()</div><div class="ttdoc">permet d&amp;#39;afficher les infos de l&amp;#39;image </div><div class="ttdef"><b>Definition:</b> <a href="_image_i_o_8php_source.html#l00034">ImageIO.php:34</a></div></div>
 <div class="ttc" id="class_conversion_html_a5f66ca2a147a5960f8d0a37d32fc8e3f"><div class="ttname"><a href="class_conversion.html#a5f66ca2a147a5960f8d0a37d32fc8e3f">Conversion\image2ressource</a></div><div class="ttdeci">static image2ressource($I)</div><div class="ttdoc">convertit une image de la library timmi en image de la library gd </div><div class="ttdef"><b>Definition:</b> <a href="_conversion_8php_source.html#l00082">Conversion.php:82</a></div></div>
+<div class="ttc" id="class_image_i_o_html_a20d8912c6961a10ca5c04f87676501d7"><div class="ttname"><a href="class_image_i_o.html#a20d8912c6961a10ca5c04f87676501d7">ImageIO\afficheImage</a></div><div class="ttdeci">afficheImage()</div><div class="ttdoc">utilise la balise HTML img pour afficher le fichier image </div><div class="ttdef"><b>Definition:</b> <a href="_image_i_o_8php_source.html#l00047">ImageIO.php:47</a></div></div>
+<div class="ttc" id="class_image_i_o_html_af3329dca0a32841592c1ae7ebb71c5c6"><div class="ttname"><a href="class_image_i_o.html#af3329dca0a32841592c1ae7ebb71c5c6">ImageIO\enregistre</a></div><div class="ttdeci">enregistre()</div></div>
+<div class="ttc" id="class_image_i_o_html_ad813343aace5117b60f46969d4c7fbc9"><div class="ttname"><a href="class_image_i_o.html#ad813343aace5117b60f46969d4c7fbc9">ImageIO\getFilename</a></div><div class="ttdeci">getFilename()</div><div class="ttdoc">donne le nom du fichier courant </div><div class="ttdef"><b>Definition:</b> <a href="_image_i_o_8php_source.html#l00081">ImageIO.php:81</a></div></div>
 <div class="ttc" id="class_conversion_html_a0ec28d2d44067359d83331dcd099b5be"><div class="ttname"><a href="class_conversion.html#a0ec28d2d44067359d83331dcd099b5be">Conversion\ressource2image</a></div><div class="ttdeci">static ressource2image($ressource)</div><div class="ttdoc">convertit une image de la library gd en image de la library timmi </div><div class="ttdef"><b>Definition:</b> <a href="_conversion_8php_source.html#l00036">Conversion.php:36</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -158,7 +170,7 @@ $(document).ready(function(){initNavTree('_image_i_o_8php_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="_image_i_o_8php.html">ImageIO.php</a></li>
-    <li class="footer">Generated on Fri Oct 10 2014 17:15:23 for TiMMi by
+    <li class="footer">Generated on Mon Oct 13 2014 10:29:31 for TiMMi by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

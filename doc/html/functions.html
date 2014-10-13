@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -125,10 +126,25 @@ $(document).ready(function(){initNavTree('functions.html','');});
 : <a class="el" href="class_image.html#a466a1a550a2fa0943d7c33b8a587edcd">Image</a>
 </li>
 <li>__toString()
-: <a class="el" href="class_image.html#a3eaebf64bd13f49c4da391b4199f9284">Image</a>
+: <a class="el" href="class_image_i_o.html#ad756a54f7efb4f6184e9c203af793f52">ImageIO</a>
+, <a class="el" href="class_image.html#a3eaebf64bd13f49c4da391b4199f9284">Image</a>
 </li>
-<li>export()
-: <a class="el" href="class_lecteur.html#a7b9f6b4e93be782222daf1a7dbd07d8a">Lecteur</a>
+<li>afficheImage()
+: <a class="el" href="class_image_i_o.html#a20d8912c6961a10ca5c04f87676501d7">ImageIO</a>
+, <a class="el" href="class_lecteur.html#ab3501d3c8f14902b8ae9535fd2e5a11e">Lecteur</a>
+</li>
+<li>enregistre()
+: <a class="el" href="class_image_i_o.html#af3329dca0a32841592c1ae7ebb71c5c6">ImageIO</a>
+, <a class="el" href="class_lecteur.html#a301b5edf5e399bf682a5040bb0c76c50">Lecteur</a>
+</li>
+<li>enregistreSous()
+: <a class="el" href="class_lecteur.html#af5820b28e0b2df463441336bc14937c7">Lecteur</a>
+</li>
+<li>exporte()
+: <a class="el" href="class_lecteur.html#a047402897b6bace4d60dd80beb87126f">Lecteur</a>
+</li>
+<li>getFilename()
+: <a class="el" href="class_image_i_o.html#ad813343aace5117b60f46969d4c7fbc9">ImageIO</a>
 </li>
 <li>getHauteur()
 : <a class="el" href="class_image.html#a1c31924f90bff0d36c65d61fde17ad86">Image</a>
@@ -139,11 +155,15 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <li>image2ressource()
 : <a class="el" href="class_conversion.html#a5f66ca2a147a5960f8d0a37d32fc8e3f">Conversion</a>
 </li>
-<li>import()
-: <a class="el" href="class_lecteur.html#a9a2c88c202e3958138b0ec4ceb631a55">Lecteur</a>
+<li>importe()
+: <a class="el" href="class_lecteur.html#ae0a4daa53ec50ac567d48d06a1326846">Lecteur</a>
 </li>
 <li>Lecteur()
 : <a class="el" href="class_lecteur.html#ac91e294d6d6e8f78252ccb5b5f9be90b">Lecteur</a>
+</li>
+<li>ouvre()
+: <a class="el" href="class_image_i_o.html#a16bd571e3645f0ea04aada32c593d74a">ImageIO</a>
+, <a class="el" href="class_lecteur.html#ad76ca4cc0e0b9c05ed843b84b44da1ec">Lecteur</a>
 </li>
 <li>ressource2image()
 : <a class="el" href="class_conversion.html#a0ec28d2d44067359d83331dcd099b5be">Conversion</a>
@@ -154,7 +174,7 @@ $(document).ready(function(){initNavTree('functions.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Oct 10 2014 17:15:23 for TiMMi by
+    <li class="footer">Generated on Mon Oct 13 2014 10:29:31 for TiMMi by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

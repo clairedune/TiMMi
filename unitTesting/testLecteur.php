@@ -1,7 +1,7 @@
 <?php
 	/*! 
-	 * \file index.php
-	 * \brief fonction principale, se lance automatiquement dans le navigateur à l'URL du répertoire principal
+	 * \file testLecteur.php
+	 * \brief test unitaire de la classe Lecteur
 	 * \author Claire Dune
 	 * \date 20/10/2013
 	 */
@@ -12,14 +12,16 @@
 	$lecteur = new Lecteur();
     $lecteur->ouvre("../images/bobine.png");
     $lecteur->afficheImage();
+    
+    // on enregistre en jpg
 	$lecteur->enregistreSous("../images/bobine102.jpg");
     $lecteur->afficheImage();
+    
+    // on enrigistre en gif
     $lecteur->enregistreSous("../images/bobine102.gif");
     $lecteur->afficheImage();
     
-    $lecteur2 = $lecteur;
-	$lecteur2->afficheImage();
-	
+    // on export en gif
     $I = $lecteur->export();
     
 	echo ("pixel 32, 45".$I->tab[32][45][0]);

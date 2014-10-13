@@ -11,7 +11,7 @@ var searchData=
   ['imageiojpg_2ephp',['ImageIOjpg.php',['../_image_i_ojpg_8php.html',1,'']]],
   ['imageiopng',['ImageIOpng',['../class_image_i_opng.html',1,'']]],
   ['imageiopng_2ephp',['ImageIOpng.php',['../_image_i_opng_8php.html',1,'']]],
-  ['import',['import',['../class_lecteur.html#a9a2c88c202e3958138b0ec4ceb631a55',1,'Lecteur']]],
+  ['importe',['importe',['../class_lecteur.html#ae0a4daa53ec50ac567d48d06a1326846',1,'Lecteur']]],
   ['index_2ephp',['index.php',['../index_8php.html',1,'']]],
   ['interfaceio',['InterfaceIO',['../interface_interface_i_o.html',1,'']]],
   ['interfaceio_2ephp',['InterfaceIO.php',['../_interface_i_o_8php.html',1,'']]]
