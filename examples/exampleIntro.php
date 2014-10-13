@@ -14,7 +14,7 @@
 	
 	//1. CHARGER L'IMAGE
 	// utilise le lecteur pour ouvrir une fichier
-   $lecteur->ouvre("images/bobine.png");
+   $lecteur->ouvre("../images/bobine.png");
    $lecteur->afficheImage();
   
 	
