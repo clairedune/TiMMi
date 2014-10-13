@@ -123,6 +123,7 @@ Inheritance diagram for Lecteur:</div>
  <div class="center">
   <img src="class_lecteur.png" usemap="#Lecteur_map" alt=""/>
   <map id="Lecteur_map" name="Lecteur_map">
+<area href="interface_interface_i_o.html" title="interface InterfaceIO : prototype des methodes d&#39;affichage, lecture et écriture des images ..." alt="InterfaceIO" shape="rect" coords="0,0,75,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -149,6 +150,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab3501d3c8f14902b8ae9535fd2e5a11e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lecteur.html#ab3501d3c8f14902b8ae9535fd2e5a11e">afficheImage</a> ()</td></tr>
 <tr class="memdesc:ab3501d3c8f14902b8ae9535fd2e5a11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">cette méthode permet d'afficher l'image à l'écran  <a href="#ab3501d3c8f14902b8ae9535fd2e5a11e">More...</a><br/></td></tr>
 <tr class="separator:ab3501d3c8f14902b8ae9535fd2e5a11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_interface_interface_i_o"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_interface_i_o')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_interface_i_o.html">InterfaceIO</a></td></tr>
+<tr class="memitem:abaf9a5d4e5cbf8553878de4855dea82d inherit pub_methods_interface_interface_i_o"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abaf9a5d4e5cbf8553878de4855dea82d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>importe</b> (<a class="el" href="class_image.html">Image</a> $I)</td></tr>
+<tr class="separator:abaf9a5d4e5cbf8553878de4855dea82d inherit pub_methods_interface_interface_i_o"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -195,7 +200,9 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00210">210</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
+<p>Implements <a class="el" href="interface_interface_i_o.html">InterfaceIO</a>.</p>
+
+<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00220">220</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
 
 </div>
 </div>
@@ -221,7 +228,9 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00172">172</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
+<p>Implements <a class="el" href="interface_interface_i_o.html">InterfaceIO</a>.</p>
+
+<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00182">182</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
 
 </div>
 </div>
@@ -253,7 +262,9 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <div class="line">* </div>
 </div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00189">189</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
+<p>Implements <a class="el" href="interface_interface_i_o.html">InterfaceIO</a>.</p>
+
+<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00199">199</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
 
 </div>
 </div>
@@ -278,6 +289,8 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <div class="line">       $I = $lecteur-&gt;export();</div>
 <div class="line"> ?php&gt;</div>
 </div><!-- fragment --> 
+<p>Implements <a class="el" href="interface_interface_i_o.html#a281fd6aa7f7cea9c1590ef6557bcb95e">InterfaceIO</a>.</p>
+
 <p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00102">102</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
 
 </div>
@@ -369,17 +382,24 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <p>cette méthode permet d'ouvrir un fichier image qui a pour nom $filename </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">$filename,une</td><td>chaîne de caractere qui donne le chemin du fichier image et son nom <div class="fragment"><div class="line">&lt;?php</div>
-<div class="line">       $lecteur = <span class="keyword">new</span> <a class="code" href="class_lecteur.html#ac91e294d6d6e8f78252ccb5b5f9be90b">Lecteur</a>();</div>
-<div class="line">       $lecteur-&gt;ouvre(<span class="stringliteral">&quot;../images/bobine.png&quot;</span>);</div>
-<div class="line"> ?php&gt;</div>
-<div class="line">* </div>
-</div><!-- fragment --> </td></tr>
+    <tr><td class="paramname">$filename,une</td><td>chaîne de caractere qui donne le chemin du fichier image et son nom </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>$I image prete a etre utilisée pour le traitement de l'image qu'on peut capter ou pas <div class="fragment"><div class="line">&lt;?php</div>
+<div class="line">       $lecteur = <span class="keyword">new</span> <a class="code" href="class_lecteur.html#ac91e294d6d6e8f78252ccb5b5f9be90b">Lecteur</a>();</div>
+<div class="line">       $lecteur-&gt;ouvre(<span class="stringliteral">&quot;../images/bobine.png&quot;</span>);</div>
+<div class="line"> ?php&gt;</div>
+</div><!-- fragment --> ou <div class="fragment"><div class="line">&lt;?php</div>
+<div class="line">       $lecteur = <span class="keyword">new</span> <a class="code" href="class_lecteur.html#ac91e294d6d6e8f78252ccb5b5f9be90b">Lecteur</a>();</div>
+<div class="line">       $I = $lecteur-&gt;ouvre(<span class="stringliteral">&quot;../images/bobine.png&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line"> ?php&gt;</div>
+</div><!-- fragment --> </dd></dl>
 
-<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00152">152</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
+<p>Implements <a class="el" href="interface_interface_i_o.html">InterfaceIO</a>.</p>
+
+<p>Definition at line <a class="el" href="_lecteur_8php_source.html#l00161">161</a> of file <a class="el" href="_lecteur_8php_source.html">Lecteur.php</a>.</p>
 
 </div>
 </div>
@@ -392,7 +412,7 @@ static&#160;</td><td class="memItemRight" valign="bottom"><b>$instances</b> = 0<
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_lecteur.html">Lecteur</a></li>
-    <li class="footer">Generated on Mon Oct 13 2014 20:55:53 for TiMMi by
+    <li class="footer">Generated on Mon Oct 13 2014 21:51:16 for TiMMi by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.5 </li>
   </ul>

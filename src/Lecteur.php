@@ -23,7 +23,7 @@
 */
 
     
-class Lecteur implements interfaceIO
+class Lecteur implements InterfaceIO
 {
     static public $instances = 0; 
     public $instance;
@@ -141,18 +141,28 @@ class Lecteur implements interfaceIO
 	 * \fn ouvre($filename)
 	 * \brief cette méthode permet d'ouvrir un fichier image qui a pour nom $filename
 	 * \param $filename, une chaîne de caractere qui donne le chemin du fichier image et son nom
+	 * \return $I image prete a etre utilisée pour le traitement de l'image qu'on peut capter ou pas
 	 * \code
 	 <?php
 	        $lecteur = new Lecteur();
             $lecteur->ouvre("../images/bobine.png");
 	  ?php>
-	 * \endcode
+	 \endcode
+	 * ou
+     \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $I = $lecteur->ouvre("../images/bobine.png");
+             
+	  ?php>
+	 \endcode
 	 */
 
 	public function ouvre($filename)
 	{   
 	    $this->selectionneLecteur($filename);
 	    $this->_lecteur->ouvre($filename);
+	    return $this->exporte();
 	}
 	
 	

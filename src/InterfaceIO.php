@@ -18,10 +18,37 @@ require_once "Image.php";
 
 interface InterfaceIO
 {
+    
+    
+    /*!
+	 * \fn exporte()
+	 * \brief permet de créer une image de la librairie TiMMi
+	 * \return une image
+	 */   
     public function exporte();
-    public function importe(Image $I);    
+     /*!
+	 * \fn importe(Image $I)
+	 * \brief 
+	 */  
+    public function importe(Image $I); 
+     /*!
+	 * \fn ouvre($filename)
+	 * \brief 
+	 */     
 	public function ouvre($filename);
+	 /*!
+	 * \fn enregistre()
+	 * \brief 
+	 */  
 	public function enregistre();
+	 /*!
+	 * \fn enregistreSous($filename)
+	 * \brief 
+	 */  
 	public function enregistreSous($filename);	
+	 /*!
+	 * \fn afficheImage()
+	 * \brief 
+	 */  
     public function afficheImage();
 }

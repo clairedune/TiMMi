@@ -1,7 +1,7 @@
 <?php
 	/*! 
-	 * \file testLecteur.php
-	 * \brief test unitaire de la classe Lecteur
+	 * \file exampleLecteur.php
+	 * \brief ce fichier teste intensivement les methodes de la classe lecteur
 	 * \author Claire Dune
 	 * \date 2/10/2014
 	 */

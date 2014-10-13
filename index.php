@@ -1,22 +1,14 @@
-<?php
-	/*! 
-	 * \file index.php
-	 * \brief fonction principale, se lance automatiquement dans le navigateur à l'URL du répertoire principal
-	 * \author Claire Dune
-	 * \date 20/10/2013
-	 */
+<html>
 
-	require_once("conf/config.php");
-	require_once("src/Lecteur.php");
+<H1>Pour commencer, un exemple</H1>
 
-   // creer un lecteur d'image qui permet de lire, ecrire et afficher des fichier
-	$lecteur = new Lecteur();
-	
-	//1. CHARGER L'IMAGE
-	// utilise le lecteur pour ouvrir une fichier
-   $lecteur->ouvre("images/bobine.png");
-   $lecteur->afficheImage();
-  
-	
-?>
+<p><a href="examples/exampleIntro.php"> Un premier exemple d'utilisation de la librairie TiMMI</a> </p>
+
+<H1>Pour aller plus loin, de la documentations</H1>
+
+<p><a href="doc/html"> la documentation de la librairie TiMMI</a> </p>
+
+
+
+</html>
 
