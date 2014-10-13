@@ -18,8 +18,8 @@ require_once "Image.php";
 
 interface InterfaceIO
 {
-    public function export();
-    public function import(Image $I);    
+    public function exporte();
+    public function importe(Image $I);    
 	public function ouvre($filename);
 	public function enregistre();
 	public function enregistreSous($filename);	

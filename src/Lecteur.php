@@ -19,12 +19,15 @@
 *  traitement d'image qui permet d'ouvrir, enregistrer et afficher n'importe quel fichier image
 * \author Claire Dune
 * \date 2/10/2014
+* \example exampleGradient.php, exampleColorGradient.php
 */
 
     
 class Lecteur implements interfaceIO
 {
-    
+    static public $instances = 0; 
+    public $instance;
+    public $num = 0;
 	private $_lecteur;
 	
 	
@@ -44,16 +47,17 @@ class Lecteur implements interfaceIO
 	 */
 	public function Lecteur()
 	{
-	    $this->_lecteur = new ImageIOpng(); 
+	   $this->instance = ++self::$instances;
+	   $this->_lecteur = new ImageIOpng(); 
     }
 	
 	/*!
-	 * \fn selectLecteur()
+	 * \fn selectionneLecteur()
 	 * \brief permet de selectionner le bon lecteur selon l'extension du fichier
 	 * \warning c'est une méthode privée qui n'est pas accessible depuis l'extérieur de    
 	 * la classe
 	 */
-	private function selectLecteur($name)
+	private function selectionneLecteur($name)
 	{	
 	    $info = new SplFileInfo($name);
        
@@ -81,7 +85,7 @@ class Lecteur implements interfaceIO
 	
 	
 	/*!
-	 * \fn export()
+	 * \fn exporte()
 	 * \brief cette méthode permet de créer une image de la classe Image pour le traitement d'image
 	 *
 	 *
@@ -95,17 +99,17 @@ class Lecteur implements interfaceIO
 	  ?php>
 	 \endcode
 	 */
-    public function export()
+    public function exporte()
     { 
-        return $this->_lecteur->export();
+        return $this->_lecteur->exporte();
     }
     
     
     /*!
-	 * \fn import()
+	 * \fn importe(Image $I)
 	 * \brief cette méthode permet de créer une image de la classe Image pour le traitement d'image
-	 *
-	 *
+	 * \param $I c'est l'image qu'on veut charger 
+	 * \param $filename c'est le nom du fichier, par défaut, il est null.
 	 * 
 	 * \code
 	 <?php
@@ -116,31 +120,93 @@ class Lecteur implements interfaceIO
 	  ?php>
 	 * \endcode
 	 */
-    public function import(Image $I)
+    public function importe(Image $I, $filename = NULL)
     {
-        $this->_lecteur->import($I); 
-        $this->enregistreSous("tmp");   
-    }  
+        $this->_lecteur->importe($I); 
+       
+       if(is_null($filename))
+       {
+         $this->num++;
+         $this->enregistreSous("../res/lecteur".$this->instance."-im".$this->num.".png"); 
+       }  
+       else 
+         $this->enregistreSous($filename); 
+       
+    
+    }
 	
+	
+		
+	/*!
+	 * \fn ouvre($filename)
+	 * \brief cette méthode permet d'ouvrir un fichier image qui a pour nom $filename
+	 * \param $filename, une chaîne de caractere qui donne le chemin du fichier image et son nom
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+	  ?php>
+	 * \endcode
+	 */
+
 	public function ouvre($filename)
 	{   
-	    $this->selectLecteur($filename);
+	    $this->selectionneLecteur($filename);
 	    $this->_lecteur->ouvre($filename);
 	}
 	
+	
+	
+	/*!
+	 * \fn enregistre()
+	 * \brief cette méthode enregistre l'image courante dans le fichier image courant
+	 * \warning : attention, cette methode ecrase l'image courante
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->enregistre(); // ecrase l'image bobine.png
+	  ?php>
+	 * \endcode
+	 */
 	public function enregistre()
 	{   
 	    $this->_lecteur->enregistre();
 	}
 	
+	/*!
+	 * \fn enregistreSous($filename)
+	 * \brief cette méthode permet d'enregistrer l'image courante dans un fichier image qui a pour nom $filename
+	 * \param $filename, une chaîne de caractere qui donne le chemin du fichier image et son nom
+	 * \warning : attention, il faut que les permissions soient données en écriture sur ce fichier
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+	  ?php>
+	 * \endcode
+	 */
 	public function enregistreSous($filename)
 	{  
 	    $tmp=$this->_lecteur->_im;
-	    $this->selectLecteur($filename);
+	    $this->selectionneLecteur($filename);
 	    $this->_lecteur->_im = $tmp;
 	    $this->_lecteur->enregistreSous($filename);
 	} 
 	 
+	 
+	 /*!
+	 * \fn afficheImage()
+	 * \brief cette méthode permet d'afficher l'image à l'écran
+	 * \warning attention, il faut que l'image soit enregistrée sur le disque pour être appelée
+	 * \code
+	 <?php
+	        $lecteur = new Lecteur();
+            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->afficheImage();
+	  ?php>
+	 * \endcode
+	 */
 	 public function afficheImage()
 	 {
 	   $this->_lecteur->afficheImage();

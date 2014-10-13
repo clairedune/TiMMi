@@ -27,15 +27,46 @@ class Image
 	 *
 	 * \param $l la largeur de l'affichage
 	 * \param $h la hauteur de l'affichage
-	 *
+	 * \example examples/exampleGradient.php
 	 * Exemple : creation d'une image
-	 * \code
-	 * <?php
-	 *  $largeur = 100;
-	 *  $hauteur = 200;
-	 * 	$I = new Image($largeur, $hauteur);
-	 * ?php>
-	 * \endcode
+	 \code
+ require_once("../conf/config.php"); 
+ require_once("../src/Image.php");
+ require_once("../src/Lecteur.php");
+
+ 
+ 
+ // on creer une image
+ $largeur = 255;
+ $hauteur = 100;
+ $I = new Image($largeur, $hauteur);
+ 
+ // on affiche les informations de l'image
+ // echo $I;
+ 
+ 
+  // on remplit les pixels avec un degradé
+ for($i = 0 ; $i < $largeur ; $i ++) // on parcourt les colonnes
+    for ($j = 0 ; $j < $hauteur ; $j ++) // on parcourt les lignes
+    {
+        $I->tab[$i][$j][0] = $i;  // couche du rouge
+        $I->tab[$i][$j][1] = $i;  // couche du vert
+        $I->tab[$i][$j][2] = $i;  // couche du bleu
+    }
+ 
+ // on creer un lecteur
+ $lecteur = new Lecteur();
+ 
+ // on importe l'image
+ $lecteur->importe($I);
+ 
+ // on enregistre l'image dans un fichier physique
+ $lecteur->enregistreSous("../res/gradientGris.png");
+ 
+ // on affiche l'image
+ echo "<br/> Degrade de niveaux de gris <br/>";
+ $lecteur->afficheImage();
+ \endcode
 	 */
 	public function __construct($l, $h)
 	{
@@ -62,18 +93,18 @@ class Image
 	 * Exemple : utilisation de __toString() par un appel implicite avec echo
 	 * \code
 	 * <?php
-	 *  $largeur = 200;
-	 *  $hauteur = 300;
-	 * 	$I = new Image($largeur, $hauteur);
-	 *  echo $I;
-	 * ?php>
-	 * \endcode
+	   $largeur = 200;
+	   $hauteur = 300;
+	  	$I = new Image($largeur, $hauteur);
+	   echo $I;
+	  ?php>
+	  \endcode
 	 */
 	public function __toString()
 	{
-		return "<H3>Attributs de l'image</H3>".
+		return "<hr/><H3>Attributs de l'image</H3>".
 		"Largeur : ".$this->largeur.
-		"<br>Hauteur : ".$this->hauteur;
+		"<br />Hauteur : ".$this->hauteur."<br/><hr/>";
 	}
 	
 		
@@ -86,12 +117,14 @@ class Image
 	 *
 	 * Exemple : utilisation de l'accesseur sur la largeur
 	 * \code
-	 * <?php
-	 * ... 
-	 *  $l = $disp->getLargeur();
-	 * ... 
-	 * ?php>
-	 * \endcode
+	  <?php
+	       $largeur = 200;
+	       $hauteur = 300;
+	  	   $I = new Image($largeur, $hauteur); 
+	       $l = $I->getLargeur();
+	       echo $l;
+	  ?php>
+	  \endcode
 	 */
 	public function getLargeur(){return $this->largeur;}
 	
@@ -103,12 +136,14 @@ class Image
 	 *
 	 * Exemple : utilisation de l'accesseur sur la largeur
 	 * \code
-	 * <?php
-	 * ... 
-	 *  $h = $disp->getHauteur();
-	 * ... 
-	 * ?php>
-	 * \endcode
+	  <?php
+	       $largeur = 200;
+	       $hauteur = 300;
+	  	   $I = new Image($largeur, $hauteur); 
+	       $h = $I->getHauteur();
+	       echo $h;
+	 ?php>
+	  \endcode
 	 */
 	public function getHauteur(){return $this->hauteur;}
 	
