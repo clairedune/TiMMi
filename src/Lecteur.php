@@ -193,8 +193,9 @@ class Lecteur implements InterfaceIO
 	 <?php
 	        $lecteur = new Lecteur();
             $lecteur->ouvre("../images/bobine.png");
+            $lecteur->enregistreSous("../res/bobine.png");
 	  ?php>
-	 * \endcode
+	  \endcode
 	 */
 	public function enregistreSous($filename)
 	{  
