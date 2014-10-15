@@ -95,7 +95,7 @@ class Lecteur implements InterfaceIO
 	        $lecteur = new Lecteur();
             $lecteur->ouvre("../images/bobine.png");
             $lecteur->afficheImage();
-            $I = $lecteur->export();
+            $I = $lecteur->exporte();
 	  ?php>
 	 \endcode
 	 */
