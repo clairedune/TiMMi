@@ -61,7 +61,6 @@ var NAVTREEINDEX0 =
 "class_lecteur.html#af5820b28e0b2df463441336bc14937c7":[1,0,7,2],
 "classes.html":[1,1],
 "config_8php_source.html":[2,0,0,0],
-"dir_575c4959b9b03905663cb967affd1896.html":[2,0,3],
 "dir_60c1e009daff386049faf4e676bb6db8.html":[2,0,0],
 "dir_68267d1309a1af8e8297ef4c3efbcdba.html":[2,0,2],
 "dir_d28a4824dc47e487b107a5db32ef43c4.html":[2,0,1],
@@ -100,8 +99,8 @@ var NAVTREEINDEX0 =
 "functions_func.html":[1,3,1],
 "functions_vars.html":[1,3,2],
 "hierarchy.html":[1,2],
-"index.html":[0],
 "index.html":[],
+"index.html":[0],
 "index.html#Introduction":[0,0],
 "index.html#documentation":[0,2],
 "index.html#documentation_TiMMi":[0,2,0],
@@ -111,7 +110,7 @@ var NAVTREEINDEX0 =
 "index.html#install_step2":[0,1,1],
 "index.html#install_step3":[0,1,2],
 "index.html#install_step4":[0,1,3],
-"index_8php_source.html":[2,0,4],
+"index_8php_source.html":[2,0,3],
 "interface_interface_i_o.html":[1,0,6],
 "interface_interface_i_o.html#a281fd6aa7f7cea9c1590ef6557bcb95e":[1,0,6,3],
 "interface_interface_i_o.html#a2d43dcc875b2255f32469a1ca7a1f26a":[1,0,6,1],
@@ -121,9 +120,5 @@ var NAVTREEINDEX0 =
 "interface_interface_i_o.html#acb6ca04929d7f6687433d8181ff5704e":[1,0,6,0],
 "main_8php.html":[2,0,2,8],
 "main_8php_source.html":[2,0,2,8],
-"pages.html":[],
-"test_lecteur_8php.html":[2,0,3,0],
-"test_lecteur_8php.html#a46163db64b57db961d4bb2ada2d923f9":[2,0,3,0,0],
-"test_lecteur_8php.html#ad2bf7f3b6904fb50681f83af1b984925":[2,0,3,0,1],
-"test_lecteur_8php_source.html":[2,0,3,0]
+"pages.html":[]
 };
