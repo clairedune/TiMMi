@@ -149,7 +149,32 @@ class Image
 	
 	
 	
-	
+	public function min()
+	{
+	   $min =255;
+	   for ($i=0;$i<$this->largeur;$i++)
+	       for ($j=0;$j<$this->hauteur;$j++) 
+	       {
+	         if($this->tab[$i][$j][0]<$min) $min = $this->tab[$i][$j][0];
+	       
+	       }
+	         
+	   return $min;
+	}
+
+    
+	public function max()
+	{
+	   $max = 0;
+	   for ($i=0;$i<$this->largeur;$i++)
+	       for ($j=0;$j<$this->hauteur;$j++) 
+	       {
+	         if($this->tab[$i][$j][0]>$max) $man = $this->tab[$i][$j][0];
+	       
+	       }
+	         
+	   return $max;
+	}
 
 
 }
