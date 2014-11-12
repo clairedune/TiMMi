@@ -149,7 +149,7 @@ class Image
 	
 	
 	
-	public function min()
+	public function minimum()
 	{
 	   $min =255;
 	   for ($i=0;$i<$this->largeur;$i++)
@@ -163,13 +163,13 @@ class Image
 	}
 
     
-	public function max()
+	public function maximum()
 	{
 	   $max = 0;
 	   for ($i=0;$i<$this->largeur;$i++)
 	       for ($j=0;$j<$this->hauteur;$j++) 
 	       {
-	         if($this->tab[$i][$j][0]>$max) $man = $this->tab[$i][$j][0];
+	         if($this->tab[$i][$j][0]>$max) $max = $this->tab[$i][$j][0];
 	       
 	       }
 	         
