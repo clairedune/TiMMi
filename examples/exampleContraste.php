@@ -37,6 +37,14 @@
     $lecteur->importe($Iauto ,"../res/bobAuto.png");
     $lecteur->afficheImage();
     
+    $Iinv = Contraste::inversion($IbNw);
+    $lecteur->importe($Iinv ,"../res/bobinv.png");
+    $lecteur->afficheImage();
+    
+    $Is = Contraste::seuil($IbNw,$s);
+    $lecteur->importe($Is ,"../res/bobs.png");
+    $lecteur->afficheImage();
+    
    
 ?>
 

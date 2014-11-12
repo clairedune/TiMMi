@@ -71,4 +71,52 @@ class Contraste
     
     
     
+    
+    public static function inversion($Isrc)
+    {
+         $Ires = clone $Isrc;
+        for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
+            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            {
+                
+                $val = 255-$Isrc->tab[$i][$j][0] ;                
+               
+                // on sature le resultat pour qu'il soit affichable
+                if($val>255) $val = 255;
+                else if ($val < 0) $val = 0;
+                
+                // on construit la nouvelle image
+                $Ires->tab[$i][$j][0] = $val;
+                $Ires->tab[$i][$j][1] = $val;
+                $Ires->tab[$i][$j][2] = $val;
+            }
+        
+        // on renvoie le resultat
+        return $Ires;
+    }
+    
+
+    public static function seuil($Isrc,$s)
+    {
+        $Ires = clone $Isrc;
+        for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
+            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            {
+                
+                if($Isrc->tab[$i][$j][0]>$s) 
+                    $val = 255;
+                else
+                    $val = 0;                
+                             
+                // on construit la nouvelle image
+                $Ires->tab[$i][$j][0] = $val;
+                $Ires->tab[$i][$j][1] = $val;
+                $Ires->tab[$i][$j][2] = $val;
+            }
+        
+        // on renvoie le resultat
+        return $Ires;
+    }
+    
+    
 }
