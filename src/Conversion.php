@@ -103,6 +103,29 @@ class Conversion{
 		
     }
     
+    public static function hist2image($hist)
+    {
+        $largeur = sizeof($hist) + 10 ;
+   	    $hauteur = max($hist) + 10 ;
+	    $I = new Image($largeur, $hauteur);
+	
+	    $i=0;
+	    foreach($hist as $numPix)
+	    {
+	       for ($j = $hauteur-$numPix-5 ; $j< $hauteur-5 ; $j++)
+	       { 
+	           $I->tab[$i][$j][0] = 255 ; 
+	           $I->tab[$i][$j][1] = 255 ;
+	           $I->tab[$i][$j][2] = 255 ;
+	       }  
+	       $i++;
+	    }
+	
+	   return $I;
+    
+    }
+    
+    
     
       
 }
