@@ -41,6 +41,7 @@
     $lecteur->importe($Iinv ,"../res/bobinv.png");
     $lecteur->afficheImage();
     
+    $s = 100;
     $Is = Contraste::seuil($IbNw,$s);
     $lecteur->importe($Is ,"../res/bobs.png");
     $lecteur->afficheImage();

@@ -10,7 +10,7 @@ class Contraste
         // pour tous les pixels on ajoute $decalage à la valeur
         $Ires = clone $Isrc;
         for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
-            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            for( $j = 0 ; $j < $Isrc->getHauteur() ; $j++) 
             {
                 // on ajoute la valeur
                 $val = $Isrc->tab[$i][$j][0] + $dec; 
@@ -49,7 +49,7 @@ class Contraste
          $Ires = clone $Isrc;
          
         for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
-            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            for( $j = 0 ; $j < $Isrc->getHauteur() ; $j++) 
             {
                 // on ajoute la valeur
                 $val = ($Isrc->tab[$i][$j][0]-$mini)*255/$plage; 
@@ -76,7 +76,7 @@ class Contraste
     {
          $Ires = clone $Isrc;
         for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
-            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            for( $j = 0 ; $j < $Isrc->getHauteur() ; $j++) 
             {
                 
                 $val = 255-$Isrc->tab[$i][$j][0] ;                
@@ -100,7 +100,7 @@ class Contraste
     {
         $Ires = clone $Isrc;
         for( $i = 0 ; $i < $Isrc->getLargeur() ; $i++)
-            for( $j = 0 ; $j < $Isrc->getLargeur() ; $j++) 
+            for( $j = 0 ; $j < $Isrc->getHauteur() ; $j++) 
             {
                 
                 if($Isrc->tab[$i][$j][0]>$s) 
