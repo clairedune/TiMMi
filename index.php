@@ -4,6 +4,12 @@
 
 <p><a href="examples/exampleIntro.php"> Un premier exemple d'utilisation de la librairie TiMMI</a> </p>
 
+
+<H1>Test de desaturation et desaturation partielle</H1>
+
+<p><a href="examples/exampleDesaturation.php"> Un test de desaturation</a> </p>
+
+
 <H1>Pour aller plus loin, de la documentations</H1>
 
 <p><a href="doc/html"> la documentation de la librairie TiMMI</a> </p>

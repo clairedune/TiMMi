@@ -1,73 +1,50 @@
 <?php
+   /*! 
+	 * \file exampleIntro.php
+	 * \brief ce fichier montre un premier exemple de chargement d'une image et d'affichage
+	 * \author Claire Dune
+	 * \date 20/10/2013
+	 */
+
 	require_once("../conf/config.php");
 	require_once("../src/Lecteur.php");
+    require_once("../src/colorMode.php");
+    require_once("../src/Contraste.php");
+       
+       
+	$lecteur = new Lecteur();
+	$lecteur->ouvre("../images/bobine.png");
+    $lecteur->afficheImage();
+    
+    $Isrc = $lecteur->exporte();
+    $I = clone $Isrc;
+    $IbNw = ColorMode::desaturation( $I );
+   
+    // importer l'image resultat
+    $lecteur->importe($IbNw ,"../res/bobineLumDesat.png");
+    $lecteur->afficheImage();
+        
+    $Iclair = Contraste::decalage($IbNw,50);
+    $lecteur->importe($Iclair ,"../res/bobclaire.png");
+    $lecteur->afficheImage();
+   
+   
+    $Isombre = Contraste::decalage($IbNw,-50);
+    $lecteur->importe($Isombre ,"../res/bobsombre.png");
+    $lecteur->afficheImage();
+    
+    $Iauto = Contraste::automatique($IbNw);
+    $lecteur->importe($Iauto ,"../res/bobAuto.png");
+    $lecteur->afficheImage();
+    
+    $Iinv = Contraste::inversion($IbNw);
+    $lecteur->importe($Iinv ,"../res/bobinv.png");
+    $lecteur->afficheImage();
+    
+    $s = 100;
+    $Is = Contraste::seuil($IbNw,$s);
+    $lecteur->importe($Is ,"../res/bobs.png");
+    $lecteur->afficheImage();
  
-     $lecteur = new Lecteur();
-     $lecteur->ouvre("../images/bobine.png");
-     $lecteur->afficheImage();
-     $I = $lecteur->exporte();
-            
-     function desaturation(Image $I)
-     {
-        $largeur = $I->getLargeur();
-        $hauteur = $I->getHauteur();
-        
-        $Idest = new Image($largeur, $hauteur);
-        
-        for( $i=0 ; $i < $largeur ; $i++ )
-        {
-            for( $j=0 ; $j < $hauteur ; $j++ )
-            {
-                $r = $I->tab[$i][$j][0];
-                $g = $I->tab[$i][$j][1];
-                $b = $I->tab[$i][$j][2];
-            
-                $m = ($r+$g+$b)/3;
-            
-                $Idest->tab[$i][$j][0] = $m;
-                $Idest->tab[$i][$j][1] = $m;
-                $Idest->tab[$i][$j][2] = $m;
-            }
-        }
-        
-        return $Idest;
-     }      
-    $IbNw = desaturation( $I );
-   
-    // importer l'image
-    $lecteur->importe($IbNw ,"../res/bobineLumFun.png");
-    $lecteur->afficheImage();
-    
-     function eclaircissement(Image $I)
-     {
-        $largeur = $I->getLargeur();
-        $hauteur = $I->getHauteur();
-        
-        $Idest = new Image($largeur, $hauteur);
-        
-        for( $i=0 ; $i < $largeur ; $i++ )
-        {
-            for( $j=0 ; $j < $hauteur ; $j++ )
-            {
-                // eclaircissement k'=k+50
-                $k = $I->tab[$i][$j][0];
-                $kprime = $k + 50;
-                if($kprime>255) $kprime=255;
-                
-                $Idest->tab[$i][$j][0] = $kprime;
-                $Idest->tab[$i][$j][1] = $kprime;
-                $Idest->tab[$i][$j][2] = $kprime;
-            }
-        }
-        
-        return $Idest;
-     }      
-    $Iec = eclaircissement( $IbNw );
-   
-    // importer l'image
-    $lecteur->importe($Iec ,"../res/BobEc.png");
-    $lecteur->afficheImage();
-    
-        
 ?>
 
