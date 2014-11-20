@@ -17,7 +17,7 @@
 
     function histogramme($I)
     {	
-    	   // 1. ATTENTION NE PAS OUBLIER LA MISE A ZERO !!! 
+       // 1. ATTENTION NE PAS OUBLIER LA MISE A ZERO !!! 
 	   $hist[] = array();
 	   for ($k=0 ; $k<256 ; $k++)
 	       $hist[$k]=0;
