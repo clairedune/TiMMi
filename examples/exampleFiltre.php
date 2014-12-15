@@ -57,22 +57,7 @@
     $lecteur->importe($Iv ,"../res/v.png");
     $lecteur->afficheImage();   
      
-    // fusion
-    for($i=0 ; )
    
-        
-   /* $Iauto = Contraste::automatique($IbNw);
-    $lecteur->importe($Iauto ,"../res/bobAuto.png");
-    $lecteur->afficheImage();
-    
-    $Iinv = Contraste::inversion($IbNw);
-    $lecteur->importe($Iinv ,"../res/bobinv.png");
-    $lecteur->afficheImage();
-    
-    $s = 100;
-    $Is = Contraste::seuil($IbNw,$s);
-    $lecteur->importe($Is ,"../res/bobs.png");
-    $lecteur->afficheImage();*/
     
    
 ?>
