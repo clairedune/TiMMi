@@ -70,7 +70,7 @@ class FiltreLineaire
         $hauteur = $IbNw->getHauteur();
         $Imoy = new Image($largeur, $hauteur);
         
-        echo 'eeeee'.floor($this->taille/2);
+        
         
         for( $i=floor($this->taille/2) ; $i<$largeur-floor($this->taille/2) ; $i++ )
         {
