@@ -25,7 +25,7 @@ class ImageIOpng extends ImageIO
 	public function ouvre($filename)
 	{
 	  $this->_filename = $filename;
-	  $this->_im       = imageCreateFromPng($this->_filename);
+	  $this->_im       = imagecreatefrompng($this->_filename);
 	}
 	
 	public function enregistre()
