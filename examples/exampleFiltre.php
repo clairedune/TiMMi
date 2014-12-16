@@ -39,14 +39,14 @@
     
     $facteur = 4;
     // on applique ensuite une detection de contours verticaux        
-    $Ih = $f->convolution($Imoy, $L,$facteur);
+    $Iv = $f->convolution($Imoy, $L,$facteur);
     
     //on affiche l'image resultat
-    $lecteur->importe($Ih ,"../res/h.png");
+    $lecteur->importe($Ih ,"../res/v.png");
     $lecteur->afficheImage();    
-     
-     
-   
+    
+    
+      
     
    
 ?>
