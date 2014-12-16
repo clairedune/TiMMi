@@ -42,7 +42,7 @@
     $Iv = $f->convolution($Imoy, $L,$facteur);
     
     //on affiche l'image resultat
-    $lecteur->importe($Ih ,"../res/v.png");
+    $lecteur->importe($Iv ,"../res/v.png");
     $lecteur->afficheImage();    
     
     
