@@ -8,8 +8,8 @@
 
 	require_once("../conf/config.php");
 	require_once("../src/Lecteur.php");
-  require_once("../src/colorMode.php");
-  require_once("../src/FiltreLineaire.php");
+    require_once("../src/colorMode.php");
+    require_once("../src/FiltreLineaire.php");
         
    
     $lecteur = new Lecteur();
@@ -33,16 +33,16 @@
     $lecteur->afficheImage();    
    
       
-    $L[0][0] = 1 ; $L[1][0] = 0 ; $L[2][0] = -1 ;
-    $L[0][1] = 2 ; $L[1][1] = 0 ; $L[2][1] = -2 ;  
-    $L[0][2] = 1 ; $L[1][2] = 0 ; $L[2][2] = -1 ;
+    $L[0][0] = -1; $L[1][0] = -2; $L[2][0] = -1;
+    $L[0][1] = 0 ; $L[1][1] = 0 ; $L[2][1] = 0 ;  
+    $L[0][2] = 1 ; $L[1][2] = 2 ; $L[2][2] = 1 ;
     
     $facteur = 4;
-    // on applique ensuite une detection de contours verticaux        
-    $Iv = $f->convolution($Imoy, $L,$facteur);
+    // on applique ensuite une detection de contours horizontaux        
+    $Ih = $f->convolution($Imoy, $L,$facteur);
     
     //on affiche l'image resultat
-    $lecteur->importe($Iv ,"../res/v.png");
+    $lecteur->importe($Ih ,"../res/h.png");
     $lecteur->afficheImage();    
     
     
