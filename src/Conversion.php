@@ -106,13 +106,13 @@ class Conversion{
     public static function hist2image($hist)
     {
         $largeur = sizeof($hist) + 10 ;
-   	    $hauteur = max($hist)/30 + 10 ;
+   	    $hauteur = max($hist)/100 + 10 ;
 	    $I = new Image($largeur, $hauteur);
 	
 	    $i=0;
 	    foreach($hist as $numPix)
 	    {
-	       $numPix/=30;
+	       $numPix/=100;
 	       for ($j = $hauteur-$numPix-5 ; $j< $hauteur-5 ; $j++)
 	       { 
 	           $I->tab[$i][$j][0] = 255 ; 

@@ -33,9 +33,8 @@
 	
 	$hist = histogramme ($IbNw);
 	$I = Conversion::hist2image($hist);
-	$I = Contraste ::inversion($I);
 	$lecteur->importe($I ,"../res/histogramme.png");
-     $lecteur->afficheImage();
+    $lecteur->afficheImage();
     
     $Iclair = Contraste::decalage($IbNw,150);
     $lecteur->importe($Iclair ,"../res/bobclaire.png");
@@ -46,37 +45,7 @@
 	$lecteur->importe($I ,"../res/histogrammec.png");
     $lecteur->afficheImage();
 
-   /*
-    $Isombre = Contraste::decalage($IbNw,-50);
-    $lecteur->importe($Isombre ,"../res/bobsombre.png");
-    $lecteur->afficheImage();
-    
-    $hist = histogramme ($Isombre);
-	$I = Conversion::hist2image($hist);
-	$lecteur->importe($I ,"../res/histogrammesombre.png");
-    $lecteur->afficheImage();
-    
-    
-    $Iinv = Contraste::inversion($IbNw);
-    $lecteur->importe($Iinv ,"../res/bobinv.png");
-    $lecteur->afficheImage();
-    
-     $hist = histogramme ($Iinv);
-	$I = Conversion::hist2image($hist);
-	$lecteur->importe($I ,"../res/histogrammecINV.png");
-    $lecteur->afficheImage();
-    
-    $s = 100;
-    $Is = Contraste::seuil($IbNw,$s);
-    $lecteur->importe($Is ,"../res/bobs.png");
-    $lecteur->afficheImage();
- 
- 
-    $hist = histogramme ($Is);
-	$I = Conversion::hist2image($hist);
-	$lecteur->importe($I ,"../res/histogrammecSeuil.png");
-    $lecteur->afficheImage();*/
-    
-    
+  
+     
     
 ?>
