@@ -15,27 +15,21 @@
 	
 require_once("ImageIO.php");
 require_once("Image.php");
-require_once("Conversion.php");
 
 
 class ImageIOgif extends ImageIO
 {
-    
-       
+ 
 	public function ouvre($filename)
 	{
 	  $this->_filename = $filename;
-	  $this->_im       = imageCreateFromGif($this->_filename);
+	  $this->im        = imageCreateFromGif($this->_filename);
 	}
 	
-	public function enregistre()
-	{
-	   imagegif($this->_im, $this->_filename);
-	}
-	
-	public function enregistreSous($filename)
+	public function enregistre($filename)
 	{
 	   $this->_filename = $filename;
-	   $this->enregistre();
+	   imagegif($this->im, $filename);
 	}
+	
 }

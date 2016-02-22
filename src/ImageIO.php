@@ -18,12 +18,12 @@
 	
 require_once "Image.php";
 require_once "InterfaceIO.php";
-
+require_once "ImageConversion.php";
 
 abstract class ImageIO implements InterfaceIO
 {
     protected $_filename = "tmp.png";
-    public $_im;
+    public $im;
     
     
     /*!
@@ -33,10 +33,10 @@ abstract class ImageIO implements InterfaceIO
 	 */
     public function __toString()
     {
-        return  "<br />----Image info-----<br />".
+        return  "<br />----ImageIO info-----<br />".
                 "<br />Fichier :<br />".$this->_filename."<br/>".
-                "<br />Largeur :<br />".imagesx($this->_im)."<br/>".
-                "<br />Hauteur :<br />".imagesy($this->_im)."<br/>";    
+                "<br />Largeur :<br />".imagesx($this->im)."<br/>".
+                "<br />Hauteur :<br />".imagesy($this->im)."<br/>";    
     }
     
      /*!
@@ -54,15 +54,40 @@ abstract class ImageIO implements InterfaceIO
     
     
     /*!
-	 * \fn export()
+	 * \fn exporteRGB()
+	 * 
+	 * \brief export le fichier image en un image TiMMi
+	 * \return Image $I, une image RGB pour le traitement d'image
+	 */
+    public function exporteRGB()
+    {
+        return ImageConversion::ressource2imageRGB($this->im);
+    }
+    
+     /*!
+	 * \fn exporte()
 	 * 
 	 * \brief export le fichier image en un image TiMMi
 	 * \return Image $I, une image RGB pour le traitement d'image
 	 */
     public function exporte()
     {
-        return Conversion::ressource2image($this->_im);
+        return $this->exporteRGB();
     }
+
+    
+    
+     /*!
+	 * \fn exporteMonochrome()
+	 * 
+	 * \brief export le fichier image en un image TiMMi
+	 * \return Image $I, une image intensity pour le traitement d'image
+	 */
+    public function exporteMonochrome()
+    {
+        return ImageConversion::ressource2imageMonochrome($this->im);
+    }
+    
   
     /*!
 	 * \fn import(Image $I)
@@ -71,7 +96,13 @@ abstract class ImageIO implements InterfaceIO
 	 */  
     public function importe(Image $I)
     {
-        $this->_im = Conversion::image2ressource($I);    
+        
+        if(get_class($I)=="ImageRGB") 
+            $this->im = ImageConversion::imageRGB2ressource($I);  
+        elseif(get_class($I)=="ImageMonochrome")
+            $this->im = ImageConversion::imageMonochrome2ressource($I); 
+        else
+            $this->im = ImageConversion::imageRGB2ressource($I); 
     }
     
         
@@ -100,13 +131,6 @@ abstract class ImageIO implements InterfaceIO
 	 *
 	 * \return $filename : le nom du fichier
 	 */
-	public abstract function enregistre();
+	public abstract function enregistre($filename);
 	
-	 /*!
-	 * \fn getFilename()
-	 * \brief 
-	 *
-	 * \return $filename : le nom du fichier
-	 */
-	public abstract function enregistreSous($filename);	
 }

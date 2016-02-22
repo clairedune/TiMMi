@@ -12,79 +12,19 @@
 * \author Claire Dune
 * \date 20/09/2013
 */
-class Image
+abstract class Image
 {
 	/*! \param $largeur : largeur de l'image*/
 	protected $largeur;
 	/*! \param $hauteur : hauteur de l'image*/
 	protected $hauteur;
-	/*! \param $tab : tableau à 3 dimension qui permet de stocker les valeurs des pixels de l'image*/
+	/*! \param $tab : valeurs des pixels*/
 	public $tab;	
 		
-	/*!
-	 * \fn __construct($l, $h)
-	 * \brief constructeur de la classe Display
-	 *
-	 * \param $l la largeur de l'affichage
-	 * \param $h la hauteur de l'affichage
-	 * \example examples/exampleGradient.php
-	 * Exemple : creation d'une image
-	 \code
- require_once("../conf/config.php"); 
- require_once("../src/Image.php");
- require_once("../src/Lecteur.php");
+	
+	
 
- 
- 
- // on creer une image
- $largeur = 255;
- $hauteur = 100;
- $I = new Image($largeur, $hauteur);
- 
- // on affiche les informations de l'image
- // echo $I;
- 
- 
-  // on remplit les pixels avec un degradé
- for($i = 0 ; $i < $largeur ; $i ++) // on parcourt les colonnes
-    for ($j = 0 ; $j < $hauteur ; $j ++) // on parcourt les lignes
-    {
-        $I->tab[$i][$j][0] = $i;  // couche du rouge
-        $I->tab[$i][$j][1] = $i;  // couche du vert
-        $I->tab[$i][$j][2] = $i;  // couche du bleu
-    }
- 
- // on creer un lecteur
- $lecteur = new Lecteur();
- 
- // on importe l'image
- $lecteur->importe($I);
- 
- // on enregistre l'image dans un fichier physique
- $lecteur->enregistreSous("../res/gradientGris.png");
- 
- // on affiche l'image
- echo "<br/> Degrade de niveaux de gris <br/>";
- $lecteur->afficheImage();
- \endcode
-	 */
-	public function __construct($l, $h)
-	{
-	 	//hydratation
-		$this->largeur = $l;
-		$this->hauteur = $h;
-			
-		//initialisation du tableau
-		for($i=0;$i<$this->largeur;$i++)
-		{
-			for($j=0;$j<$this->hauteur;$j++)
-				{
-					$this->tab[$i][$j][0]=0;
-					$this->tab[$i][$j][1]=0;
-				  	$this->tab[$i][$j][2]=0;
-				}
-		}
-	}	
+	
 		
 	/*!
 	 * \fn __toString()
@@ -102,9 +42,9 @@ class Image
 	 */
 	public function __toString()
 	{
-		return "<hr/><H3>Attributs de l'image</H3>".
-		"Largeur : ".$this->largeur.
-		"<br />Hauteur : ".$this->hauteur."<br/><hr/>";
+		return "<H4>Attributs de l'image</H4>".
+		"<ul><li>Largeur : ".$this->largeur.
+		"</li><li>Hauteur : ".$this->hauteur."</li></ul>";
 	}
 	
 		
@@ -148,33 +88,16 @@ class Image
 	public function getHauteur(){return $this->hauteur;}
 	
 	
+	/*!
+	 * \fn initTab
+	 * \brief initilise a zero le tableau de la classe
+	 */
+	public abstract function initTab();
 	
-	public function minimum()
-	{
-	   $min =255;
-	   for ($i=0;$i<$this->largeur;$i++)
-	       for ($j=0;$j<$this->hauteur;$j++) 
-	       {
-	         if($this->tab[$i][$j][0]<$min) $min = $this->tab[$i][$j][0];
-	       
-	       }
-	         
-	   return $min;
-	}
+	public abstract function findMinimum($couche);
 
-    
-	public function maximum()
-	{
-	   $max = 0;
-	   for ($i=0;$i<$this->largeur;$i++)
-	       for ($j=0;$j<$this->hauteur;$j++) 
-	       {
-	         if($this->tab[$i][$j][0]>$max) $max = $this->tab[$i][$j][0];
-	       
-	       }
-	         
-	   return $max;
-	}
+    public abstract function findMaximum($couche);
+	
 
 
 }
