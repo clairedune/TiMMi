@@ -10,7 +10,7 @@
 	require_once("../src/Lecteur.php");
     require_once("../src/ImageMonochrome.php");
 	
-	echo "<H1>Importer une image monochrome dans le lecteur</H1>";
+	echo "<H1>Importer une image monochrome dans le lecteur.</H1>";
 	
 	// creation de l'image
 	$I = new ImageMonochrome(300,200);
