@@ -12,7 +12,7 @@ Welcome to the MMi Image Treatement Library TiMMi !
  
  * Step 1 : make sure that the library gd is activated in your php settings
   For instance, with easyPhp,configuration—>extension php--->php gd2  
- * Step 2 : copy the folder TiMMi-3.0 in your www/htdocs folder
+ * Step 2 : copy the folder TiMMi in your www/htdocs folder
  * Step 3 : change the permission on the res folder : everyone should have writing privilege
  
 WARNING ! take care of not changing the code architecture.
