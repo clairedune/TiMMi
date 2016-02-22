@@ -14,38 +14,53 @@
     */
 	
 require_once "Image.php";
-
+require_once "ImageMonochrome.php";
+require_once "Image.php";
 
 interface InterfaceIO
 {
     
-    
+  
     /*!
 	 * \fn exporte()
 	 * \brief permet de créer une image de la librairie TiMMi
 	 * \return une image
 	 */   
     public function exporte();
+  
+    
+    /*!
+	 * \fn exporteEnRGB()
+	 * \brief permet de créer une image de la librairie TiMMi
+	 * \return une image
+	 */   
+    public function exporteRGB();
+    
+    /*!
+	 * \fn exporteEnMonochrome()
+	 * \brief permet de créer une image de la librairie TiMMi
+	 * \return une image
+	 */   
+    public function exporteMonochrome();
+    
      /*!
-	 * \fn importe(Image $I)
+	 * \fn importeRGB(Image $I)
 	 * \brief 
 	 */  
-    public function importe(Image $I); 
+    public function importe(Image $I);  
+    
      /*!
 	 * \fn ouvre($filename)
-	 * \brief 
+	 * \brief ouvre un fichier sur le disque et retourne une image
 	 */     
 	public function ouvre($filename);
 	 /*!
 	 * \fn enregistre()
-	 * \brief 
+	 * \brief ouvre un fichier sur le disque et retourne une image
 	 */  
-	public function enregistre();
-	 /*!
-	 * \fn enregistreSous($filename)
-	 * \brief 
-	 */  
-	public function enregistreSous($filename);	
+	public function enregistre($filename);
+
+		
 	 /*!
 	 * \fn afficheImage()
 	 * \brief 

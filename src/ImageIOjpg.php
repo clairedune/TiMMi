@@ -14,7 +14,6 @@
     */	
 require_once("ImageIO.php");
 require_once("Image.php");
-require_once("Conversion.php");
 
 
 class ImageIOjpg extends ImageIO
@@ -25,17 +24,14 @@ class ImageIOjpg extends ImageIO
 	public function ouvre($filename)
 	{
 	  $this->_filename = $filename;
-	  $this->_im       = imageCreateFromJpeg($this->_filename);
+	  $this->im       = imageCreateFromJpeg($this->_filename);
 	}
 	
-	public function enregistre()
-	{
-	   imagejpeg($this->_im, $this->_filename);
-	}
-	
-	public function enregistreSous($filename)
+	public function enregistre($filename)
 	{
 	   $this->_filename = $filename;
-	   $this->enregistre();
+	   imagejpeg($this->im, $this->_filename);
 	}
+	
+	
 }

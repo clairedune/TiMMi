@@ -28,7 +28,7 @@ class Lecteur implements InterfaceIO
     static public $instances = 0; 
     public $instance;
     public $num = 0;
-	private $_lecteur;
+	private $_imageIO;
 	
 	
 	/*!
@@ -48,7 +48,7 @@ class Lecteur implements InterfaceIO
 	public function Lecteur()
 	{
 	   $this->instance = ++self::$instances;
-	   $this->_lecteur = new ImageIOpng(); 
+	   $this->_imageIO = new ImageIOpng(); 
     }
 	
 	/*!
@@ -64,17 +64,20 @@ class Lecteur implements InterfaceIO
        // on utilise l'extension pour utiliser le bon lecteur
        // attention en selectionnant un nouveau lecteur, on 
        // efface l'image qu'il contenait et son nom de fichier
-	   if(($info->getExtension()=="jpg"||$info->getExtension()=="jpeg")&&get_class($this->_lecteur)!="ImageIOjpg")
+	   if(($info->getExtension()=="jpg"||$info->getExtension()=="jpeg")
+	       && get_class($this->_imageIO)!="ImageIOjpg")
 	       {
-	           $this->_lecteur = new ImageIOjpg();
+	           $this->_imageIO = new ImageIOjpg();
 	       }  
-	   else if($info->getExtension()=="png"&&get_class($this->_lecteur)!="ImageIOpng")
+	   else if($info->getExtension()=="png"
+	       && get_class($this->_imageIO)!="ImageIOpng")
 	       {
-	           $this->_lecteur = new ImageIOpng(); 
+	           $this->_imageIO = new ImageIOpng(); 
 	       }
-	   else if($info->getExtension()=="gif"&&get_class($this->_lecteur)!="ImageIOgif")
+	   else if($info->getExtension()=="gif"
+	       && get_class($this->_imageIO)!="ImageIOgif")
 	       {
-	           $this->_lecteur = new ImageIOgif(); 
+	           $this->_imageIO = new ImageIOgif(); 
 	         
 	       }
 
@@ -85,7 +88,7 @@ class Lecteur implements InterfaceIO
 	
 	
 	/*!
-	 * \fn exporte()
+	 * \fn exporteEnRGB()
 	 * \brief cette méthode permet de créer une image de la classe Image pour le traitement d'image
 	 *
 	 *
@@ -99,11 +102,22 @@ class Lecteur implements InterfaceIO
 	  ?php>
 	 \endcode
 	 */
-    public function exporte()
+    public function exporteRGB()
     { 
-        return $this->_lecteur->exporte();
+        return $this->_imageIO->exporteRGB();
     }
     
+    public function exporte()
+    { 
+        return $this->exporteRGB();
+    }
+
+
+    public function exporteMonochrome()
+    { 
+        return $this->_imageIO->exporteMonochrome();
+    }
+
     
     /*!
 	 * \fn importe(Image $I)
@@ -113,26 +127,18 @@ class Lecteur implements InterfaceIO
 	 * 
 	 * \code
 	 <?php
+	        ...
 	        $lecteur = new Lecteur();
-            $lecteur->ouvre("../images/bobine.png");
+            $lecteur->importe($I);
             $lecteur->afficheImage();
-            $I = $lecteur->export();
 	  ?php>
 	 * \endcode
 	 */
-    public function importe(Image $I, $filename = NULL)
+    public function importe(Image $I)
     {
-        $this->_lecteur->importe($I); 
-       
-       if(is_null($filename))
-       {
-         $this->num++;
-         $this->enregistreSous("../res/lecteur".$this->instance."-im".$this->num.".png"); 
-       }  
-       else 
-         $this->enregistreSous($filename); 
-       
-    
+       $this->_imageIO->importe($I);
+       $this->num++;
+       $this->enregistre("../res/tmp-lecteur-".$this->instance."-im".$this->num.".png");             
     }
 	
 	
@@ -161,7 +167,7 @@ class Lecteur implements InterfaceIO
 	public function ouvre($filename)
 	{   
 	    $this->selectionneLecteur($filename);
-	    $this->_lecteur->ouvre($filename);
+	    $this->_imageIO->ouvre($filename);
 	    return $this->exporte();
 	}
 	
@@ -179,31 +185,15 @@ class Lecteur implements InterfaceIO
 	  ?php>
 	 * \endcode
 	 */
-	public function enregistre()
+	public function enregistre($filename)
 	{   
-	    $this->_lecteur->enregistre();
+	    $tmp = $this->_imageIO->im;
+	    $this->selectionneLecteur($filename);
+	    $this->_imageIO->im = $tmp;
+	    $this->_imageIO->enregistre($filename);
 	}
 	
-	/*!
-	 * \fn enregistreSous($filename)
-	 * \brief cette méthode permet d'enregistrer l'image courante dans un fichier image qui a pour nom $filename
-	 * \param $filename, une chaîne de caractere qui donne le chemin du fichier image et son nom
-	 * \warning : attention, il faut que les permissions soient données en écriture sur ce fichier
-	 * \code
-	 <?php
-	        $lecteur = new Lecteur();
-            $lecteur->ouvre("../images/bobine.png");
-            $lecteur->enregistreSous("../res/bobine.png");
-	  ?php>
-	  \endcode
-	 */
-	public function enregistreSous($filename)
-	{  
-	    $tmp=$this->_lecteur->_im;
-	    $this->selectionneLecteur($filename);
-	    $this->_lecteur->_im = $tmp;
-	    $this->_lecteur->enregistreSous($filename);
-	} 
+	
 	 
 	 
 	 /*!
@@ -220,9 +210,15 @@ class Lecteur implements InterfaceIO
 	 */
 	 public function afficheImage()
 	 {
-	   $this->_lecteur->afficheImage();
+	   $this->_imageIO->afficheImage();
 	 }
-	
+	 
+	 
+	 public function affiche($I)
+	 {
+	   $this->importe($I);
+	   $this->afficheImage();
+	 }	
    
     
 }

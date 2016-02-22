@@ -15,27 +15,20 @@
 	
 require_once("ImageIO.php");
 require_once("Image.php");
-require_once("Conversion.php");
+
 
 
 class ImageIOpng extends ImageIO
-{
-    
-      
+{ 
 	public function ouvre($filename)
 	{
 	  $this->_filename = $filename;
-	  $this->_im       = imagecreatefrompng($this->_filename);
+	  $this->im       = imagecreatefrompng($this->_filename);
 	}
 	
-	public function enregistre()
-	{
-	   imagepng($this->_im, $this->_filename);
-	}
-	
-	public function enregistreSous($filename)
+	public function enregistre($filename)
 	{
 	   $this->_filename = $filename;
-	   $this->enregistre();
-	}
+	   imagepng($this->im, $this->_filename);
+	}	
 }
