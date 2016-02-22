@@ -1,6 +1,6 @@
 <?php
 	/*! 
-	 * \file importerMonochrome.php
+	 * \file afficherMonochrome.php
 	 * \brief Pour creer un fichier image a partir d'une matrice monochrome
 	 * \author Claire Dune
 	 * \date 22/02/2016
@@ -10,7 +10,7 @@
 	require_once("../src/Lecteur.php");
     require_once("../src/ImageMonochrome.php");
 	
-	echo "<H1>Importer une image monochrome dans le lecteur</H1>";
+	echo "<H1>Afficher une image</H1>";
 	
 	// creation de l'image
 	$I = new ImageMonochrome(300,200);
@@ -19,12 +19,9 @@
 	$lecteur = new Lecteur();
     
     // importer l'image
-    $lecteur->importe($I);
+    $lecteur->affiche($I);
     
-    // afficher l'image
-    $lecteur->afficheImage();
-    
-    echo "l'image monochrome est bien importée";
+   
     
     
     

@@ -9,6 +9,8 @@
 	require_once("../conf/config.php");
 	require_once("../src/Lecteur.php");
 	
+	echo "<H1>Ouvrir un fichier image</H1>";
+	
 	$lecteur = new Lecteur();
     
     // ouvrir une image
